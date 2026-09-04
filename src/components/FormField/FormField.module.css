@@ -1,0 +1,64 @@
+.row {
+  display: grid;
+  grid-template-columns: minmax(12rem, 42%) 1fr;
+  gap: 0.55rem 1rem;
+  align-items: start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 72px;
+}
+
+.label {
+  padding-top: 0.35rem;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--navy) 28%, var(--rule));
+  background: var(--control);
+  color: var(--ink);
+}
+
+.textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+}
+
+.input:disabled,
+.select:disabled,
+.textarea:disabled {
+  background: color-mix(in srgb, var(--rule) 35%, var(--paper));
+  color: var(--muted);
+}
+
+.dna {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+}
+
+.dna input {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+@media (max-width: 720px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

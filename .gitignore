@@ -1,0 +1,13 @@
+# Dependencies and build
+node_modules
+dist
+*.local
+
+# Local CEAC personal-copy scans (PII — never commit)
+png/
+*.pdf
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

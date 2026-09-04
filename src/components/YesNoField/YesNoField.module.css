@@ -1,0 +1,27 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--navy) 28%, var(--rule));
+  background: var(--control);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.option:has(input:checked) {
+  border-color: var(--navy);
+  background: color-mix(in srgb, var(--navy) 10%, var(--control));
+}
+
+.option input {
+  accent-color: var(--navy);
+}

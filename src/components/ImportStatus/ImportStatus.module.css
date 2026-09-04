@@ -1,0 +1,19 @@
+.status {
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+  padding: 0.65rem 1.25rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+}
+
+.ok {
+  background: color-mix(in srgb, #2f6b3a 14%, var(--paper));
+  color: #1e4d28;
+  border: 1px solid color-mix(in srgb, #2f6b3a 35%, var(--rule));
+}
+
+.error {
+  background: color-mix(in srgb, var(--seal-red) 12%, var(--paper));
+  color: #7a1824;
+  border: 1px solid color-mix(in srgb, var(--seal-red) 40%, var(--rule));
+}

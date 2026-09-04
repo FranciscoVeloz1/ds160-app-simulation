@@ -1,0 +1,40 @@
+.banner {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  z-index: 19;
+  background: var(--seal-red);
+  color: #fff8f2;
+  text-align: center;
+  padding: 0.45rem 1rem 0.55rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.en {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.es {
+  margin: 0.12rem 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.92;
+}
+
+.note {
+  margin: 0.2rem 0 0;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.88;
+}
+
+@media (max-width: 640px) {
+  .banner {
+    top: 7.4rem;
+  }
+}

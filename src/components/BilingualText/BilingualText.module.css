@@ -1,0 +1,19 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.en {
+  font-size: var(--type-body);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.es {
+  font-size: var(--type-caption);
+  font-weight: 400;
+  color: var(--muted);
+  font-style: italic;
+}
