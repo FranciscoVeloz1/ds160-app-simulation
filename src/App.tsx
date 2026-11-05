@@ -8,6 +8,7 @@ import {
 } from "./components/ImportStatus";
 import { SECTIONS } from "./data/schema";
 import { useDs160Form } from "./hooks/useDs160Form";
+import { emptyAnswers } from "./utils/emptyAnswers";
 import { exportToExcel } from "./utils/exportToExcel";
 import { exportToJson } from "./utils/exportToJson";
 import { flattenAnswers } from "./utils/flattenAnswers";
@@ -56,6 +57,17 @@ export default function App() {
     void exportToExcel(rows);
   };
 
+  const handleClear = () => {
+    if (
+      !window.confirm(
+        "Clear the form? Saved progress in this browser will be erased. / ¿Limpiar el formulario? Se borrará el progreso guardado en este navegador.",
+      )
+    ) {
+      return;
+    }
+    form.replaceAnswers(emptyAnswers(SECTIONS));
+  };
+
   return (
     <>
       <AppNav
@@ -64,6 +76,7 @@ export default function App() {
         onFileChange={handleFileChange}
         onExportJson={handleExportJson}
         onExportExcel={handleExportExcel}
+        onClear={handleClear}
       />
       <Banner />
       <main className="page">

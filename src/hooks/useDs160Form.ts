@@ -1,14 +1,42 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Ds160Answers, SectionDef } from "../types/ds160";
 import { emptyAnswers } from "../utils/emptyAnswers";
+import { parseAnswers } from "../utils/parseDs160Json";
 import { collectRepeatables } from "../utils/schemaWalk";
 import { emptyListRow } from "../utils/schemaWalk";
 import { isShown } from "../utils/isShown";
 
+const STORAGE_KEY = "ds160-answers:v1";
+
+function readStored(sections: readonly SectionDef[]): Ds160Answers {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      return emptyAnswers(sections);
+    }
+    return parseAnswers(raw);
+  } catch {
+    return emptyAnswers(sections);
+  }
+}
+
+function writeStored(answers: Ds160Answers): void {
+  try {
+    // ponytail: write every change, debounce if typing janks
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+  } catch {
+    // private mode or quota
+  }
+}
+
 export function useDs160Form(sections: readonly SectionDef[]) {
   const [answers, setAnswers] = useState<Ds160Answers>(() => {
-    return emptyAnswers(sections);
+    return readStored(sections);
   });
+
+  useEffect(() => {
+    writeStored(answers);
+  }, [answers]);
 
   const setValue = useCallback((id: string, value: string) => {
     setAnswers((current) => {
