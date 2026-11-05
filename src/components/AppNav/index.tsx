@@ -7,6 +7,7 @@ type AppNavProps = {
   onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onExportJson: () => void;
   onExportExcel: () => void;
+  onClear: () => void;
 };
 
 export function AppNav({
@@ -15,6 +16,7 @@ export function AppNav({
   onFileChange,
   onExportJson,
   onExportExcel,
+  onClear,
 }: AppNavProps) {
   return (
     <header className={styles.nav}>
@@ -55,6 +57,14 @@ export function AppNav({
             aria-label="Export Excel / Exportar Excel"
           >
             Export Excel / Exportar Excel
+          </button>
+          <button
+            type="button"
+            className={styles.btn}
+            onClick={onClear}
+            aria-label="Clear form / Limpiar formulario"
+          >
+            Clear / Limpiar
           </button>
         </div>
       </div>
